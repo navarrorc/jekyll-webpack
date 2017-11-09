@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp build",
-    "build-sp": "cross-env NODE_ENV=production gulp build-sp"
+    "build-sp": "cross-env NODE_ENV=production gulp build-sp",
+    "deploy": "git subtree push --prefix jekyll/ origin gh-pages"
   },
   "repository": {
     "type": "git",

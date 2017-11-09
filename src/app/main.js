@@ -17,7 +17,7 @@ import message from "@/app/components/message/message.vue";
 
 $(() => {
 
-    console.log("In main.js");
+    console.log("In main.js!!!");
 
     // if (!window._spPageContextInfo) {
     //     let appWebUrl,
