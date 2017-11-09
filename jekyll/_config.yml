@@ -1,10 +1,4 @@
 # ----
-# Where things are
-
-# source:       jekyll
-# destination:  ./jekyll/_site
-
-# ----
 # Site
 
 title: Site
@@ -13,58 +7,12 @@ description: Site hosted Github pages
 # -----
 # Build
 
-permalink: /:categories/:title/
-
-collections:
-  sets:
-
-jekyll-archives:
-  enabled: ['categories']
-
 defaults:
   -
     scope:
       path: ""
     values:
       layout: "default"
-  -
-    scope:
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true
-  -
-    scope:
-      type: "sets"
-    values:
-      _hide_content: true
-  -
-    scope:
-      path: "index.html"
-    values:
-      body_class: "show_hero_search"
-
-# -----------
-# CloudCannon
-
-social_icons:
-  - Facebook
-  - Google Plus
-  - Instagram
-  - LinkedIn
-  - Pinterest
-  - Tumblr
-  - Twitter
-  - YouTube
-  - Email
-  - RSS
-
-types:
-  - Document
-  - Video
-
-_comments:
-
 
 # see: https://alligator.io/jekyll/compress-html/
 compress_html:
@@ -77,4 +25,4 @@ compress_html:
     envs: []
 
 # Excludes
-exclude: ["Gemfile", "Gemfile.lock", "gulpfile.js", "package.json", "firebase.json", "node_modules/", "src/", "package-lock.json"]
+exclude: ["Gemfile", "Gemfile.lock"]
