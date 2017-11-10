@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page</title>
-    <link rel="icon" href="{{ "/favicon.ico" | relative_url }}" type="image/x-icon">
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
 
     <!-- useful libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -19,23 +19,8 @@
 </head>
 
 <body>
-    <!-- <form runat="server">
-        <SharePoint:FormDigest ID="FormDigest1" runat="server"></SharePoint:FormDigest>
-    </form> -->
 
     {{ content }}
-
-    <!-- SharePoint -->
-    <!-- <script src="//ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js"></script>
-    <script src="https://static.sharepointonline.com/bld/_layouts/15/16.0.6802.1208/sp.runtime.js"></script>
-    <script src="https://static.sharepointonline.com/bld/_layouts/15/16.0.6802.1208/sp.js"></script>
-    <script src="https://static.sharepointonline.com/bld/_layouts/15/16.0.6802.1208/init.js"></script>
-    <script src="https://static.sharepointonline.com/bld/_layouts/15/16.0.6802.1208/sp.init.js"></script>
-    <script src="https://static.sharepointonline.com/bld/_layouts/15/16.0.6802.1208/sp.core.js"></script>
-    <script src="https://static.sharepointonline.com/bld/_layouts/15/16.0.6802.1208/sp.requestexecutor.js"></script> -->
-
-    <!-- This script tag loads the required polyfills from the service -->
-    <!-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js?callback=stuffisloaded&features=es6|always|gated,fetch|always|gated"></script> -->
 
     <!-- bundled code -->
     <script src="{{site.baseurl}}/dist/vendor.js"></script>
