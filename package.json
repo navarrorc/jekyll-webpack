@@ -1,7 +1,7 @@
 {
   "name": "roberto",
-  "version": "0.0.1",
-  "description": "website",
+  "version": "0.0.2",
+  "description": "jekyll website with assets being handled by webpack",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/username/username.github.io.git"
   },
-  "author": "Your Name",
+  "author": "Roberto C. Navarro",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/username/username.github.io/issues"
