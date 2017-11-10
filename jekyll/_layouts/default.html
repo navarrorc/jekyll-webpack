@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <!-- bundled styles -->
-    <link rel="stylesheet" href="{{ "/dist/css/main.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/dist/css/main.css?Rev={% bust_cache %}">
 </head>
 
 <body>
@@ -38,8 +38,8 @@
     <!-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js?callback=stuffisloaded&features=es6|always|gated,fetch|always|gated"></script> -->
 
     <!-- bundled code -->
-    <script src="{{ "/dist/vendor.js" | relative_url }}"></script>
-    <script src="{{ "/dist/main.js" | relative_url }}"></script>
+    <script src="{{site.baseurl}}/dist/vendor.js?Rev={% bust_cache %}"></script>
+    <script src="{{site.baseurl}}/dist/main.js?Rev={% bust_cache %}"></script>
 </body>
 
 </html>
