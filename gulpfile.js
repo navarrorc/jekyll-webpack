@@ -7,8 +7,6 @@ const webpack = require("webpack");
 const WebpackDevServer = require("webpack-dev-server");
 const browserSync = require("browser-sync").create();
 const path = require("path");
-const fs = require("fs");
-const glob = require("glob");
 const runSequence = require("run-sequence");
 
 let webpackConfig = require("./webpack.config.js")(process.env.NODE_ENV);
@@ -59,31 +57,11 @@ function resolve(dir) {
  **************/
 
 /**
-* Process JS with webpack
+* Process Assets with webpack
 */
 gulp.task("webpack", function (done) {
     webpack(webpackConfig, function (err, stats) {
         onBuild()(err, stats);
-        done();
-    });
-});
-
-/**
- * Rename all index.html files to default.aspx
- */
-gulp.task("rename", function (done) {
-    glob("./jekyll/_site/**/*index.html", {}, function (er, files) {
-        gutil.log(JSON.stringify(files, null, 4));
-        files.forEach(function (file_path) {
-            let dir = file_path.substr(0, file_path.lastIndexOf("/") + 1);
-            fs.rename(`${dir}index.html`, `${dir}default.aspx`, function (err) {
-                if (err) {
-                    gutil.log("ERROR: " + err);
-                    throw err;
-                }
-            });
-        });
-        gutil.log("Rename: All index.html renamed.");
         done();
     });
 });
@@ -95,7 +73,7 @@ gulp.task("jekyll-build", function (done) {
     // see: https://aaronlasseigne.com/2016/02/03/using-gulp-with-jekyll/
     let exec = process.platform === "win32" ? "jekyll.bat" : "jekyll"; // see: http://bit.ly/2pzQeHk
     if (isProd) {
-        jekyll = child.spawn(exec, ["build", "--source", "jekyll/", "--destination", "jekyll/_site/","--incremental", "--drafts"])
+        jekyll = child.spawn(exec, ["build", "--source", "jekyll/", "--destination", "jekyll/_site/", "--incremental", "--drafts"])
             .on("close", function () {
                 done();
             });
@@ -134,11 +112,7 @@ gulp.task("serve", function () {
             port: 8081
         },
         ghostMode: false,
-        open: false,
-        // https: {
-        //     pfx: "./ssl/localhost-spo-dev.pfx",
-        //     passphrase: "spodev"
-        // }
+        open: false
     };
     browserSync.init(options);
 
@@ -158,19 +132,33 @@ gulp.task("serve", function () {
     });
 });
 
-gulp.task("build", function () {
-    // runSequence("jekyll-build", "webpack");
-    // runSequence("webpack", "jekyll-build");
-    runSequence("webpack");
+gulp.task("clean-dist", function (done) {
+    // delete the dist directory
+    let rm = child.spawn("rm", ["-rfv", "./jekyll/dist"])
+        .on("close", function () {
+            done();
+        });
+
+    let rmLogger = function (buffer) {
+        buffer.toString()
+            .split(/\n/)
+            .forEach(function (message) {
+                if (message) {
+                    gutil.log("RM Command: " + message);
+                }
+            });
+    };
+
+    rm.stdout.on("data", rmLogger);
+    rm.stderr.on("data", rmLogger);
 });
 
-gulp.task("build-sp", function () {
-    // build for SharePoint, replaces all index.html to default.aspx
-    runSequence("webpack", "jekyll-build", "rename");
+gulp.task("build", function () {
+    runSequence("clean-dist", "webpack");
 });
 
 gulp.task("default", function () {
-    runSequence("jekyll-build", "webpack-dev-server", "serve");
+    runSequence("clean-dist", "jekyll-build", "webpack-dev-server", "serve");
 });
 
 gulp.task("webpack-dev-server", function (done) {
@@ -198,10 +186,7 @@ gulp.task("webpack-dev-server", function (done) {
         overlay: {
             warnings: false,
             errors: true
-        },
-        // https: true,
-        // pfx: fs.readFileSync("./ssl/localhost-spo-dev.pfx"),
-        // pfxPassphrase: "spodev"
+        }
     }).listen(3000, "localhost", function (err) {
         if (err) throw new gutil.PluginError("webpack-dev-server", err);
     });

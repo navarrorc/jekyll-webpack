@@ -2,7 +2,7 @@
 # Site
 
 title: Site
-description: Site hosted Github pages
+description: Site hosted on Github Pages
 
 # -----
 # Build
@@ -25,4 +25,4 @@ compress_html:
     envs: []
 
 # Excludes
-exclude: ["Gemfile", "Gemfile.lock"]
+# exclude: ["Gemfile", "Gemfile.lock"]
