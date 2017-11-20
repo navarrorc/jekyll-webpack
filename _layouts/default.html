@@ -1,26 +1,39 @@
 ---
 <!-- layout: compress  -->
 ---
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Page</title>
-  <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Antic+Slab|Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" media="screen" href="{{ site.baseurl }}/dist/css/main.css">
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
+  {% seo %}
+  {% feed_meta %}
 
   <!-- useful libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-  <!-- bundled styles -->
-  <link rel="stylesheet" href="{{ site.baseurl }}/dist/css/main.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
-
-  {{ content }}
+  {% include navigation.html %}
+  <header>
+    <a href="{{site.baseurl }}/">
+      <img src="{{ site.baseurl }}/images/logo.svg" width="180" alt="logo">
+    </a>
+  </header>
+  <div class="container main-content">
+    <section class="content">{{ content }}</section>
+    {% include sidebar.html %}
+  </div>
+  <footer>
+    <div class="container">
+      <hr> &copy; {{ site.title }} {{ site.time | date: "%Y" }}. All rights reserved.
+    </div>
+  </footer>
 
   <!-- bundled code -->
   <script src="{{site.baseurl}}/dist/vendor.js"></script>
