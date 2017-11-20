@@ -2,7 +2,7 @@
 
 > Jekyll & Webpack project
 
-## 🚧 You must have ruby installed on your development machine, please read the [installation guide](https://jekyllrb.com/docs/installation/). I show you how to install the correct version of Jekyll below. Also, my assumption is that you have set the remote origin to the master branch of your GitHub repo (run `git remote -v` to verify).
+# 🚧 You must have ruby installed on your development machine, please have a look at this [installation guide](https://www.youtube.com/watch?v=jQo8IQtLueU), I recommend at least ruby v2.3.3. Set the remote origin to the master branch of your GitHub repo (run `git remote -v` to verify).
 
 ## Build Setup
 
@@ -17,7 +17,7 @@
     # install npm dependencies 
     $ npm install
 
-    # serve with hot reload at localhost:8080
+    # build for development, site will run at localhost:8080
     $ npm run dev
 
     # build for production
@@ -31,4 +31,4 @@
     # deployment (push to github on gh-pages branch)
     $ npm run deploy
 ```
-Then visit your gh-pages url and enjoy!
+Then visit your gh-pages url and view the site!
