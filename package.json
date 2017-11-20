@@ -1,6 +1,6 @@
 {
   "name": "jekyll-webpack",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "jekyll website with assets being handled by webpack",
   "main": "index.js",
   "scripts": {
@@ -9,16 +9,8 @@
     "build-sp": "cross-env NODE_ENV=production gulp build-sp",
     "deploy": "git subtree push --prefix jekyll/ origin gh-pages"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/username/username.github.io.git"
-  },
-  "author": "Roberto C. Navarro",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/username/username.github.io/issues"
-  },
-  "homepage": "https://github.com/username/username.github.io#readme",
+  "author": "",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
@@ -59,11 +51,7 @@
     "lodash": "^4.17.4",
     "vue": "^2.5.6"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "iOS 8"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "iOS 8"],
   "postcss": {},
   "babel": {
     "presets": [
