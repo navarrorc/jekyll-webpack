@@ -7,7 +7,9 @@
     "dev": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp build",
     "build-sp": "cross-env NODE_ENV=production gulp build-sp",
-    "deploy": "git subtree push --prefix jekyll/ origin gh-pages"
+    "deploy": "git subtree push --prefix jekyll/ origin gh-pages",
+    "merge":
+      "git merge --squash --allow-unrelated-histories -s subtree --no-commit gh-pages"
   },
   "author": "",
   "license": "MIT",
@@ -51,11 +53,7 @@
     "lodash": "^4.17.4",
     "vue": "^2.5.8"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "iOS 8"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "iOS 8"],
   "postcss": {},
   "babel": {
     "presets": [
