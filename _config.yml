@@ -17,8 +17,6 @@ social:
 
 # -----
 # Build
-paginate: 2
-paginate_path: "/:num/"
 permalink: pretty
 
 defaults:
@@ -54,7 +52,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
-  - jekyll-paginate
 
 exclude:
   - Gemfile
