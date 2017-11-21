@@ -15,7 +15,7 @@ let jekyll = null;
 let first_run = true;
 
 const messages = {
-  jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+  jekyllBuild: "<span style='color: grey'>Running:</span> $ jekyll build"
 };
 
 const statsOptions = {
@@ -134,17 +134,7 @@ gulp.task("serve", function() {
   browserSync.init(options);
 
   let watcher_all = gulp.watch(
-    [
-      // "*.html",
-      // "*.md",
-      "jekyll/pages/**/*.html",
-      "jekyll/_layouts/*",
-      "jekyll/_includes/*",
-      "jekyll/_posts/*",
-      "jekyll/_data/*",
-      "jekyll/_sets/*",
-      "jekyll/_drafts/*"
-    ],
+    ["jekyll/**/*", "!jekyll/_site/**/*"],
     ["jekyll-build"]
   );
 

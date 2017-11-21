@@ -140,9 +140,11 @@ const commonConfig = merge([
     },
     plugins: [
       new ExtractTextPlugin({
-        filename: "css/[name].css",
+        // `allChunks` is needed with CommonsChunkPlugin to extract
+        // from extracted chunks as well.
+        allChunks: true,
+        filename: "css/[name].css"
         // filename: "./css/main.css",
-        allChunks: true
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: "vendor"

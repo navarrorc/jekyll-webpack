@@ -17,8 +17,8 @@ social:
 
 # -----
 # Build
-paginate: 10
-paginate_path: "/pages/:num/"
+paginate: 2
+paginate_path: "/:num/"
 permalink: pretty
 
 defaults:
