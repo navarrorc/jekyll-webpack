@@ -1,0 +1,19 @@
+---
+title: Home
+permalink: /
+---
+<section class="posts">
+	{% for post in site.posts %}
+		<article class="post">
+			{% include post-heading.html post=post %}
+			<div class="image">
+				<img src="{{ post.featured_image }}" alt="{{ post.title }}">
+			</div>
+
+			{{ post.excerpt }}
+
+			<p><a class="button" href="{{ site.baseurl }}{{ post.url }}">Read more</a></p>
+		</article>
+	{% endfor %}
+
+</section>

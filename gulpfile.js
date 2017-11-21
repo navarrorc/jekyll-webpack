@@ -79,7 +79,7 @@ gulp.task("jekyll-build", function(done) {
         "jekyll/",
         "--destination",
         "jekyll/_site/",
-        "--incremental",
+        // "--incremental",
         "--drafts"
       ])
       .on("close", function() {
@@ -95,7 +95,7 @@ gulp.task("jekyll-build", function(done) {
         "jekyll/",
         "--destination",
         "jekyll/_site/",
-        "--incremental",
+        // "--incremental",
         "--drafts"
       ])
       .on("close", function() {
